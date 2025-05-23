@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sigulda Notikumu Laika Josla</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<h1 id="sectionTitle">Notikumu laika josla</h1>
+
+<div class="timeline-container">
+  <div class="timeline-line"></div>
+  <input type="range" min="0" max="0" value="0" class="slider" id="timelineSlider" />
+</div>
+
+<div id="eventDetails" class="event-card">
+  <h2>Sākums</h2>
+  <div class="meta"></div>
+  <p>Izvēlies notikumu, personu vai arī personu un notikumu, pārvietojies ar ripuli.</p>
+</div>
+<div style="text-align: center; margin-bottom: 20px;">
+  <button onclick="loadSection('events')" class="section-btn">Notikumi</button>
+  <button onclick="loadSection('persons')" class="section-btn">Personas</button>
+  <button onclick="loadSection('event_person')" class="section-btn">Notikumi + Personas</button>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
