@@ -140,3 +140,12 @@ h1 {
     transform: translateY(0);
   }
 }
+#sectionTitle {
+  font-size: 28px;
+  margin-top: 30px;
+  text-align: center;
+  color: #4a90e2;
+}
+.hidden {
+  display: none;
+}

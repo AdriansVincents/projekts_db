@@ -31,13 +31,14 @@ function showSlide(data, index) {
 function loadSection(section) {
   let apiUrl = '';
   const titleElement = document.getElementById('sectionTitle');
-
+  const slider = document.getElementById('timelineSlider');
+  slider.style.display = 'block';
   if (section === 'events') {
     apiUrl = 'api.php';
     titleElement.textContent = 'Notikumu laika josla';
   } else if (section === 'persons') {
     apiUrl = 'persons.php';
-    titleElement.textContent = 'Personu laika josla';
+    titleElement.textContent = 'Personu alfabētiskā josla';
   } else if (section === 'event_person') {
     apiUrl = 'event_person.php';
     titleElement.textContent = 'Personu un notikumu laika josla';
@@ -88,5 +89,20 @@ function renderList(data) {
       </div>
     `;
   }).join('');
+}
+function showHome() {
+  const titleElement = document.getElementById('sectionTitle');
+  const slider = document.getElementById('timelineSlider');
+  titleElement.textContent = 'Sākums';
+  slider.style.display = 'none';
+  slider.oninput = null;
+  currentData = [];
+  eventDetails.innerHTML = `
+    <div class="event-card">
+      <h2>Laipni lūgti Siguldas notikumu laika joslā!</h2>
+      <p>Šī vietne ļauj aplūkot nozīmīgākos Siguldas novada notikumus, personības un to mijiedarbību dažādos laikmetos.</p>
+      <p>Izvēlies augšā kādu no sadaļām: <strong>Notikumi</strong>, <strong>Personas</strong> vai <strong>Notikumi + Personas</strong>.</p>
+    </div>
+  `;
 }
 
