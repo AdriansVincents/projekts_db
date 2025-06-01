@@ -101,8 +101,7 @@ function showHome() {
     <div class="event-card">
       <h2>Laipni lūgti Siguldas notikumu laika joslā!</h2>
       <p>Šī vietne ļauj aplūkot nozīmīgākos Siguldas novada notikumus, personības un to mijiedarbību dažādos laikmetos.</p>
-      <p>Izvēlies augšā kādu no sadaļām: <strong>Notikumi</strong>, <strong>Personas</strong> vai <strong>Notikumi + Personas</strong>.</p>
+      <p>Izvēlies lejā kādu no sadaļām: <strong>Notikumi</strong>, <strong>Personas</strong> vai <strong>Notikumi + Personas</strong>.</p>
     </div>
   `;
 }
-

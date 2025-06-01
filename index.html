@@ -7,33 +7,21 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Virsraksts -->
   <h1 id="sectionTitle">Sākums</h1>
-
-  <!-- Slider konteiners -->
   <div class="timeline-container">
     <div class="timeline-line"></div>
     <input type="range" min="0" max="0" value="0" class="slider" id="timelineSlider" />
   </div>
-
-  <!-- Saturs -->
   <div id="eventDetails" class="event-card">
-    <!-- Sākuma teksts tiks ielādēts ar JS -->
   </div>
-
-  <!-- Pogas -->
   <div style="text-align: center; margin-bottom: 20px;">
     <button class="section-btn" onclick="showHome()">Sākums</button>
     <button class="section-btn" onclick="loadSection('events')">Notikumi</button>
     <button class="section-btn" onclick="loadSection('persons')">Personas</button>
     <button class="section-btn" onclick="loadSection('event_person')">Notikumi + Personas</button>
   </div>
-
-  <!-- JavaScript -->
   <script src="script.js"></script>
   <script>
-    // Kad lapa ielādējas, parāda sākuma saturu
     window.onload = () => {
       showHome();
     };
