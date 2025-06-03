@@ -1,3 +1,9 @@
+function convertToList(text) {
+  if (!text) return '';
+  const items = text.split('\n').map(item => item.trim()).filter(item => item !== '');
+  return `<ul>${items.map(i => `<li>${i}</li>`).join('')}</ul>`;
+}
+
 const slider = document.getElementById('timelineSlider');
 const eventDetails = document.getElementById('eventDetails');
 
@@ -14,6 +20,9 @@ function showSlide(data, index) {
   const meaning = item["Common feature or meaning"] || '';
   const impact = item["Impact on society"] || '';
   const image = item.image_url || '';
+  const bio = item.bio || '';
+  const achievements = item.achievements || '';
+  const moreInfo = item.more_info || '';
 
   eventDetails.innerHTML = `
     <div class="event-card">
@@ -23,16 +32,38 @@ function showSlide(data, index) {
       ${location || meaning ? `<div class="meta">${location} ${meaning ? `— ${meaning}` : ''}</div>` : ''}
       ${description ? `<p>${description}</p>` : ''}
       ${impact ? `<p><em>${impact}</em></p>` : ''}
+      ${bio || achievements || moreInfo ? `
+        <div class="extra-info-toggle">
+          <button onclick="toggleExtraInfo()">Skatīt vairāk</button>
+        </div>
+        <div id="extraInfo" class="hidden">
+          ${bio ? `<h4>Biogrāfija</h4><p>${bio}</p>` : ''}
+          ${achievements ? `<h4>Sasniegumi</h4>${convertToList(achievements)}` : ''}
+          ${moreInfo ? `<h4>Vairāk informācijas</h4>${convertToList(moreInfo)}` : ''}
+        </div>
+      ` : ''}
     </div>
   `;
 }
 
+function toggleExtraInfo() {
+  const extraDiv = document.getElementById('extraInfo');
+  const btn = extraDiv.previousElementSibling.querySelector('button');
+
+  if (extraDiv.classList.contains('hidden')) {
+    extraDiv.classList.remove('hidden');
+    btn.textContent = 'Skatīt mazāk';
+  } else {
+    extraDiv.classList.add('hidden');
+    btn.textContent = 'Skatīt vairāk';
+  }
+}
 
 function loadSection(section) {
   let apiUrl = '';
   const titleElement = document.getElementById('sectionTitle');
-  const slider = document.getElementById('timelineSlider');
   slider.style.display = 'block';
+
   if (section === 'events') {
     apiUrl = 'api.php';
     titleElement.textContent = 'Notikumu laika josla';
@@ -54,19 +85,18 @@ function loadSection(section) {
 
       currentData = data;
 
-if (data.length > 0) {
-  slider.style.display = 'block';
-  slider.max = data.length - 1;
-  slider.value = 0;
-  showSlide(data, 0);
-  slider.oninput = () => {
-    showSlide(currentData, slider.value);
-  };
-} else {
-  slider.style.display = 'none';
-  eventDetails.innerHTML = '<p>Nav datu.</p>';
-}
-
+      if (data.length > 0) {
+        slider.style.display = 'block';
+        slider.max = data.length - 1;
+        slider.value = 0;
+        showSlide(data, 0);
+        slider.oninput = () => {
+          showSlide(currentData, slider.value);
+        };
+      } else {
+        slider.style.display = 'none';
+        eventDetails.innerHTML = '<p>Nav datu.</p>';
+      }
     })
     .catch(err => {
       eventDetails.innerHTML = `<p>Kļūda ielādē: ${err.message}</p>`;
@@ -90,10 +120,9 @@ function renderList(data) {
     `;
   }).join('');
 }
+
 function showHome() {
   const titleElement = document.getElementById('sectionTitle');
-  const slider = document.getElementById('timelineSlider');
-  titleElement.textContent = 'Sākums';
   slider.style.display = 'none';
   slider.oninput = null;
   currentData = [];

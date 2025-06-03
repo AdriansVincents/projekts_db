@@ -149,3 +149,27 @@ h1 {
 .hidden {
   display: none;
 }
+.extra-info-toggle {
+  margin-top: 12px;
+  text-align: left;
+}
+
+.extra-info-toggle button {
+  background-color: #50e3c2;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.extra-info-toggle button:hover {
+  background-color: #3cbfa2;
+}
+
+#extraInfo h4 {
+  margin-top: 1em;
+  color: #357ABD;
+}
