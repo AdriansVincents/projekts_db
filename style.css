@@ -173,3 +173,26 @@ h1 {
   margin-top: 1em;
   color: #357ABD;
 }
+#letterDisplay {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.related-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
+  background: #f9f9f9;
+  border-radius: 10px;
+}
+.related-card img {
+  width: 80px;
+  float: left;
+  margin-right: 10px;
+  border-radius: 50%;
+}

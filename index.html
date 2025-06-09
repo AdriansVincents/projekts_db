@@ -3,23 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sigulda Notikumu Laika Josla</title>
+  <title>Siguldas Vēstures Laika Josla</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1 id="sectionTitle">Sākums</h1>
+  <h1 id="sectionTitle">Siguldas vēsturisko notikumu un personību izpēte</h1>
+
   <div class="timeline-container">
+    <div id="letterDisplay" style="text-align:center; font-size: 1.5em; margin-bottom: 5px;"></div>
     <div class="timeline-line"></div>
     <input type="range" min="0" max="0" value="0" class="slider" id="timelineSlider" />
   </div>
-  <div id="eventDetails" class="event-card">
-  </div>
+
+  <div id="content"></div>
+
+  <div id="eventDetails"></div>
+
   <div style="text-align: center; margin-bottom: 20px;">
     <button class="section-btn" onclick="showHome()">Sākums</button>
     <button class="section-btn" onclick="loadSection('events')">Notikumi</button>
     <button class="section-btn" onclick="loadSection('persons')">Personas</button>
     <button class="section-btn" onclick="loadSection('event_person')">Notikumi + Personas</button>
   </div>
+
   <script src="script.js"></script>
   <script>
     window.onload = () => {
